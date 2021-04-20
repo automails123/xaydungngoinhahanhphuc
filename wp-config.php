@@ -21,7 +21,7 @@ define( 'WP_CACHE', true ) ;
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
+/** The name of the database for WordPress */ 
 define('DB_NAME', 'vodanhc2_xaydungngoinhahanhphuc'); // vodanhc2_xaydungngoinhahanhphuc
 define('DB_USER', 'root');//root vodanhc2_xaydungngoinhahanhphuc
 //user_admin:xaydungngoinhahanhphuc pass:Xaydungngoinhahanhphuc@2020++ git : Nguyenvanhoach pas Khongthequen89
