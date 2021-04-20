@@ -9,9 +9,9 @@ Author: CAGE Web Design | Rolf van Gelder, Eindhoven, The Netherlands
 Contributors: cageehv
 Requires at least: 2.8
 Requires PHP: 5.0
-Tested up to: 5.5.4
-Stable tag: 5.0.3
-Version: 5.0.3
+Tested up to: 5.7
+Stable tag: 5.0.4
+Version: 5.0.4
 License: GPLv2 or later
 
 == Description ==
@@ -111,6 +111,9 @@ http://cagewebdev.com/category/news-tech-art/wordpress/
 * If you run the plugin from any of the sites, it will cleanup ALL the sites in the network!
 
 == Changelog ==
+= 5.0.4 [02/26/2021] =
+* BUG FIX: Field names INFORMATION_SCHEMA corrected
+
 = 5.0.3 [11/17/2020] =
 * BUG FIX: Creating log table if not exists
 

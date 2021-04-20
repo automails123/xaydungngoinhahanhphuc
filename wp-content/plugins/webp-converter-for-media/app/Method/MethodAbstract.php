@@ -2,9 +2,10 @@
 
   namespace WebpConverter\Method;
 
-  use WebpConverter\Method\MethodInterface;
   use WebpConverter\Convert\Directory;
   use WebpConverter\Convert\Server;
+  use WebpConverter\Convert\Size;
+  use WebpConverter\Method\MethodInterface;
 
   abstract class MethodAbstract implements MethodInterface
   {
@@ -33,6 +34,10 @@
         $image      = $this->createImageByPath($sourcePath);
         $outputPath = $this->getImageOutputPath($sourcePath);
 
+        if (file_exists($outputPath . Size::DELETED_FILE_EXTENSION)) {
+          unlink($outputPath . Size::DELETED_FILE_EXTENSION);
+        }
+
         $this->convertImageToWebP($image, $sourcePath, $outputPath);
         do_action('webpc_convert_after', $outputPath, $sourcePath);
 
@@ -56,13 +61,14 @@
 
     public function getImageSourcePath($sourcePath)
     {
-      if (!$status = Server::checkIfFileExists($sourcePath)) {
-        $e         = new \Exception(sprintf('Source path "%s" for image does not exist.', $sourcePath));
+      $path = urldecode($sourcePath);
+      if (!$status = Server::checkIfFileExists($path)) {
+        $e         = new \Exception(sprintf('Source path "%s" for image does not exist.', $path));
         $e->status = 'file_unreadable';
         throw $e;
       }
 
-      return $sourcePath;
+      return $path;
     }
 
     public function getImageOutputPath($sourcePath)

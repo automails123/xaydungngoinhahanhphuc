@@ -3,7 +3,7 @@ Contributors: mateuszgbiorczyk
 Donate link: https://ko-fi.com/gbiorczyk/?utm_source=webp-converter-for-media&utm_medium=readme-donate
 Tags: convert webp, webp, optimize images, images, webp converter, performance, optimisation
 Requires at least: 4.9
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv2 or later
@@ -69,7 +69,7 @@ Please always adding your thread, **read all other questions in the FAQ of plugi
 
 When adding a thread, follow these steps and reply to each of them:
 
-**1.** Do you have any error on the plugin settings page? Enter error codes. Have you consulted your server administrator or developer? 
+**1.** Do you have any error on the plugin settings page? Enter error codes. Have you consulted your server administrator or developer?
 
 **2.** URL of your website. If your site is not publicly available, add it to test environment.
 
@@ -103,6 +103,18 @@ When contacting the administrator, give him all the information available in the
 
 We want to solve as many similar problems as possible automatically. This eliminates the need to wait for our response and you can try to solve the problem alone. This is very important for us.
 
+= Server configuration error on Cloudflare =
+
+For Cloudflare servers, a recurring problem is the error code **rewrites_cached** that is displayed on the plugin settings page. To solve this problem, you need to disable the cache for the website from the server.
+
+Please follow the steps below:
+**1.** Enter Cloudflare management panel and then to **Page Rules** Tab.
+**2.** Click **Create page rule** button.
+**3.** Enter your domain name (example: **yourdomain.com/\***).
+**4.** Choose **Cache Level** option, set **Bypass** value and click **Save** button.
+**5.** Click **Save and Deploy** button.
+**6.** Wait, it may take several minutes for the changes to be deployed.
+
 = Error while converting? =
 
 You can get several types of errors when converting. First of all, carefully read their content. For the most part, you can solve this problem yourself. Try to do this or contact the server administrator.
@@ -132,26 +144,6 @@ An example of the correct server configuration can be found [here](https://gbior
 In a situation where your server does not meet the technical requirements, please contact your server Administrator. We are not able to help you. Please do not contact us about this matter, because this is a server configuration problem, not a plugin.
 
 Also REST API must be enabled and work without additional restrictions. If you have a problem with it, please contact the Developer who created your website. He should easily find the issue with the REST API not working.
-
-= What are restrictions? =
-
-The size of the image is a limited. Its resolution cannot be bigger than `8192 x 8192px`. This is due to the limitations of the PHP library.
-
-Please remember that **Safari *(version 13 or earlier)* and Internet Explorer do not support the WebP format**. Therefore, using these browsers you will receive original images.
-
-You can find more about WebP support by browsers [here](https://caniuse.com/#feat=webp).
-
-= Damaged images on iOS or other browsers =
-
-The plugin in default loading mode *(via .htaccess)* uses rules in the .htaccess file to redirect from the original image to an image in WebP format. Verifies whether the WebP file exists and whether your browser supports the WebP format. It does this every time you try to load an image.
-
-When you enter from a WebP supporting device, it will redirect. However, when someone uses a browser that does not support WebP, the redirection will not work and you get the original file.
-
-However, if you see corrupted images on browsers that do not support WebP, it means that your server uses cache for rewrites from the .htaccess file. Then the plugin will not work properly because the server instead of reading the rules from the .htaccess file every time uses its cache and does the redirection automatically.
-
-How can you check it? When you turn off the plugin, the rewrites from the .htaccess file are removed, which means you should see the original images on every browser. If this is not the case and you see forced redirects to WebP files, it means that your server remembers the redirects you made earlier and uses cache.
-
-In this situation, please contact your server administrator. Each configuration is different. It can be e.g. module `mod_pagespeed` or other similar. This functionality must be turned off so that the server reads and executes the rules from the .htaccess file each time the images are loaded. This cannot be ignored because it will cause problems.
 
 = What to do after installing plugin? =
 
@@ -191,6 +183,8 @@ Only images from the `/uploads` directory are automatically converted. If you us
 = Why are some images not in WebP? =
 
 If the converted image in WebP format is larger than the original, the browser will use the original file. This converted file will be deleted. Therefore, you can also see files other than WebP on the list. When this happens, you will receive information in debug.log.
+
+When such a situation occurs, a file in `.webp.deleted` format will be created. This avoids re-converting images that were larger than original after converting to WebP. If the option of forced conversion of all images is checked, this image will also be re-converted.
 
 If you want to force the use of WebP files, uncheck the `Automatic removal of WebP files larger than original` option in the plugin settings. Then click on the `Regenerate All` button to convert all images again.
 
@@ -365,12 +359,6 @@ All rules from the files `/wp-content/.htaccess`, `/wp-content/uploads/.htaccess
 
 Argument `$path` is absolute server path for `.htaccess` file.
 
-= What is Browser Caching? =
-
-This option allows you to speed up page loading time for returning users because they do not need to re-download files from the server. The plugin allows this by using the module `mod_expires`. 
-
-It is enabled by default. If you do not want to use this functionality, you can turn it off at any time.
-
 = Does plugin support CDN? =
 
 Unfortunately not. This is due to the logic of the plugin's operation. Plugins that enable integration with the CDN servers modify the HTML of the website, changing URLs for media files. This plugin does not modify URLs. Replacing URLs in the HTML code is not an optimal solution.
@@ -477,12 +465,24 @@ This is all very important to us and allows us to do even better things for you!
 
 == Screenshots ==
 
-1. Screenshot of the options panel
-2. Screenshot when regenerating images
+1. How to start using plugin few moments?
+2. Screenshot of the options panel
+3. Screenshot when regenerating images
 
 == Changelog ==
 
-= 2.2.0 (2020-01-13) =
+= 2.4.0 (2021-02-28) =
+* `[Fixed]` Error detection of redirects without .png as supported file extension
+* `[Fixed]` Pass Thru loading mode for servers not supporting `getallheaders()` function
+* `[Changed]` Level of error for cached redirects of images to WebP files
+* `[Added]` Skip re-converting images that were larger than original after converting to WebP
+
+= 2.3.0 (2021-01-31) =
+* `[Fixed]` Encoding paths to files
+* `[Fixed]` Retaining PNG transparency using Gd method
+* `[Added]` Cron to convert images uploaded to Media Library
+
+= 2.2.0 (2021-01-13) =
 * `[Added]` Support for WordPress Multisite
 
 = 2.1.3 (2020-12-28) =
