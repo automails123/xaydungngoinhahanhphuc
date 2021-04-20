@@ -130,7 +130,7 @@ get_header();?>
    		<div class="partner pt-5 pb-4 pb-md-5">
    			<div class="container pt-lg-3">
           <h2 class="text-uppercase title-home text-center mb-2">Đối tác</h2>
-          <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto mb-4">
+          <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto mb-5">
    				<?php if(function_exists('show_partners')){ echo show_partners(); } ?>
    			</div>
    		</div>

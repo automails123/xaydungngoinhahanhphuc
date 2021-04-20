@@ -830,7 +830,7 @@ function contactForm() {
 	    if(!$tut_captcha){
 	      $errcaptacha = '<div class="text-danger">Bạn chưa xác thực reCAPTCHA!.</div>';
 	    }  
-	    $kiemtra=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LeJZjsaAAAAAHvl7LEdzVmdEsxHiOX3fZfrfWGM&response=".$tut_captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+	    $kiemtra=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdGXbEaAAAAAIOjkxwQoDBP3jDBakPS_B7dh330&response=".$tut_captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
 	    
 	    $kiemtra = json_decode($kiemtra);
 	    
@@ -999,7 +999,7 @@ function contactForm() {
 	      </div>
 	      <div class=" g-recaptcha-block row align-items-center">
 	      	<div class="col-12 col-sm-8 mb-4 my-2">
-            	<div class="g-recaptcha" data-sitekey="6LeJZjsaAAAAAGbL8m6KRu8qc1WHyS_jS5TLTmJB"></div>
+            	<div class="g-recaptcha" data-sitekey="6LdGXbEaAAAAAMTyHGflzN0FiWigZY9t5SZr2tnW"></div>
             </div>
             <div class="col-12 col-sm-4 text-center text-sm-right my-2">
             	<input type="submit" value="Gửi yêu cầu" class="btn btn-read-more text-capitalize px-5 px-sm-3 py-2 ml-sm-auto" name="btn-send">
@@ -1036,7 +1036,7 @@ function ungtuyen() {
 	    if(!$tut_captcha){
 	      $errcaptacha = '<div class="text-danger">Bạn chưa xác thực reCAPTCHA!.</div>';
 	    }  
-	    $kiemtra=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LeJZjsaAAAAAHvl7LEdzVmdEsxHiOX3fZfrfWGM&response=".$tut_captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+	    $kiemtra=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdGXbEaAAAAAIOjkxwQoDBP3jDBakPS_B7dh330&response=".$tut_captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
 	    
 	    $kiemtra = json_decode($kiemtra);
 	    
@@ -1079,7 +1079,7 @@ function ungtuyen() {
 						<tr>
 							<td width='360' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif;padding:10px 0 10px 10px'>
 								<a href='".get_bloginfo( 'url' )."' style='text-decoration:none;font-family:Arial,Helvetica,sans-serif' target='_blank'>
-									<img src='".get_bloginfo( 'url' )."/wp-content/themes/hoangtrieugroup/assets/images/logo.png' style='border:0;max-width: 100%;height: auto' alt='".get_bloginfo( 'name' )."'></a>
+									<img src='".get_bloginfo( 'url' )."/wp-content/themes/xaydungngoinhahanhphuc/assets/images/logo.png' style='border:0;max-width: 100%;height: auto' alt='".get_bloginfo( 'name' )."'></a>
 							</td>
 							<td width='30' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif'></td>
 							<td width='90' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif'><a href='".get_bloginfo( 'url' )."/gioi-thieu' style='text-decoration:none;font-family:Arial,Helvetica,sans-serif;color:#333333;font-size:12px;line-height:20px;display:inline-block' target='_blank'>Về Chúng Tôi</a></td>
@@ -1214,7 +1214,7 @@ function ungtuyen() {
 	      </div>
 	      <div class="form-group g-recaptcha-block row align-items-center">
 	      	<div class="col-12 col-sm-8 mb-4 my-2">
-            	<div class="g-recaptcha" data-sitekey="6LeJZjsaAAAAAGbL8m6KRu8qc1WHyS_jS5TLTmJB"></div>
+            	<div class="g-recaptcha" data-sitekey="6LdGXbEaAAAAAMTyHGflzN0FiWigZY9t5SZr2tnW"></div>
             </div>
             <div class="col-12 col-sm-4 text-center text-sm-right my-2">
             	<input type="submit" value="Gửi thông tin" class="btn btn-read-more text-capitalize px-5 px-sm-3 py-2 ml-sm-auto" name="btn-send">
@@ -1233,7 +1233,7 @@ function newsLetter() {
 	?>
 	<div class="new-letter">
 	    <form method="post" accept-charset="utf-8" enctype="multipart/form-data" id="subscribe-form"> 
-	       <p>Đăng kí tin tức mới, những công trình mới, dự án thi công mới và các sự kiện mới nhất,... từ chúng tôi</p>
+	       
 	       <div class="input-group">
 	         <input type="email" required="" name="mail_subscribe" class="form-control mail_subscribe px-3 px-md-2" placeholder="Nhập Email của bạn">
 	         <span class="input-group-btn">
@@ -1250,12 +1250,12 @@ function cptui_register_my_cpts() {
 	 * Post type: News Letter.
 	 */
 	$labels = array(
-		"name" => __( "News Letter", "hoangtrieugroup" ),
-		"singular_name" => __( "Sub Email", "hoangtrieugroup" ),
+		"name" => __( "News Letter", "xaydungngoinhahanhphuc" ),
+		"singular_name" => __( "Sub Email", "xaydungngoinhahanhphuc" ),
 	);
 
 	$args = array(
-		"label" => __( "News Letter", "hoangtrieugroup" ),
+		"label" => __( "News Letter", "xaydungngoinhahanhphuc" ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
@@ -2043,7 +2043,7 @@ function gallery_enqueue_hook($hook) {
 add_action('admin_enqueue_scripts', 'gallery_enqueue_hook');
 function add_gallery_metabox($post_type) {
 	//$types = array('post','events','khoa_hoc','products');
-	$types = array('post','duan','gallery');
+	$types = array('post','linhvuchoatdong','duan','gallery');
 	if (in_array($post_type, $types)) {
   		add_meta_box('gallery-metabox','Slider Hình Ảnh','gallery_meta_callback',$post_type,'normal','high');}  
 	}
@@ -2148,12 +2148,12 @@ function show_partners() {
     wp_reset_postdata();  
 }
 
-function create_posttype_duan() {
-	register_post_type( 'duan',  	
+function create_posttype_linhvuchoatdong() {
+	register_post_type( 'linhvuchoatdong',  	
 		array(
 		  'labels' => array(
-		    'name' => __( 'Dự Án Thi Công' ),
-		    'singular_name' => __( 'Dự Án Thi Công' )
+		    'name' => __( 'Lĩnh Vực Hoạt Động' ),
+		    'singular_name' => __( 'Lĩnh Vực Hoạt Động' )
 		  ),
 		  'hierarchical' => true,
 		  'show_ui' => true, 
@@ -2163,8 +2163,31 @@ function create_posttype_duan() {
 		  'menu_position' => 7,
 		  'can_export' => true,
 		  'capability_type' => 'post',
-		  'rewrite' => array('slug' => 'du-an'),
+		  'rewrite' => array('slug' => 'linh-vuc-hoat-dong'),
 		  'menu_icon' => 'dashicons-open-folder', 
+		  'supports' => array('title','editor','thumbnail','comments','excerpt', 'custom-fields','author','trackbacks','post-formats','revisions')
+		)
+	);
+}
+add_action( 'init', 'create_posttype_linhvuchoatdong' );
+
+function create_posttype_duan() {
+	register_post_type( 'duan',  	
+		array(
+		  'labels' => array(
+		    'name' => __( 'Dự án đã thi công' ),
+		    'singular_name' => __( 'Dự án đã thi công' )
+		  ),
+		  'hierarchical' => true,
+		  'show_ui' => true, 
+		  'taxonomies' => array('post_tag'),
+		  'public' => true,
+		  'has_archive' => true,
+		  'menu_position' => 8,
+		  'can_export' => true,
+		  'capability_type' => 'post',
+		  'rewrite' => array('slug' => 'du-an'),
+		  'menu_icon' => 'dashicons-images-alt', 
 		  'supports' => array('title','editor','thumbnail','comments','excerpt', 'custom-fields','author','trackbacks','post-formats','revisions')
 		)
 	);

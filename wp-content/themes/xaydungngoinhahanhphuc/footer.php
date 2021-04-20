@@ -3,7 +3,7 @@
   <div class="inner-footer">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 text-center">
+        <div class="col-12 col-lg-9 text-center">
           <div class="logo-footer">
             <a href="<?php bloginfo('url'); ?>" title="<?php echo get_bloginfo( 'name' ); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4 mx-auto" alt="<?php bloginfo('description'); ?>"></a>
           </div>
@@ -38,13 +38,13 @@
                  <li class="mb-3"><a href="<?php bloginfo('url'); ?>/gioi-thieu" title="Giới thiệu">Giới thiệu</a></li>
                  <li class="mb-3"><a href="<?php bloginfo('url'); ?>/lien-he" title="Liên hệ">Liên hệ</a></li>
                  <li class="mb-3"><a href="<?php bloginfo('url'); ?>/tuyen-dung/" title="Tuyển dụng">Tuyển dụng</a></li>
-                 <li><a href="<?php bloginfo('url'); ?>/tin-tuc-su-kien/" title="Tin tức & sự kiện">Tin tức & sự kiện</a></li>
+                 <li><a href="<?php bloginfo('url'); ?>/tin-tuc/" title="Tin tức & sự kiện">Tin tức & sự kiện</a></li>
                 </ul>
              </div>
              <div class="col-6">
                <ul class="list-unstyled list-i">
-                 <li class="mb-3"><a href="<?php bloginfo('url'); ?>/cong-trinh" title="Công trình">Công trình</a></li>
-                 <li class="mb-3"><a href="<?php bloginfo('url'); ?>/du-an" title="Dự án thi công">Dự án thi công</a></li>
+                 <li class="mb-3"><a href="<?php bloginfo('url'); ?>/linh-vuc-hoat-dong" title="Lĩnh vực hoạt động">Lĩnh vực hoạt động</a></li>
+                 <li class="mb-3"><a href="https://batdongsanland.com.vn/" title="Mua bán BĐS">Mua bán BĐS</a></li>
                  <li class="mb-3"><a href="<?php bloginfo('url'); ?>/thong-tin-co-dong" title="Thông tin cổ đông">Thông tin cổ đông</a></li>
                  <li><a href="<?php bloginfo('url'); ?>/doi-tac" title="Đối tác">Đối tác</a></li>
                 </ul>
@@ -121,11 +121,7 @@
   }
 </script>
 
-<?php
-  if(get_queried_object_id() == '2') {
-    echo "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
-  }
-  ?>
+
   <?php wp_footer(); ?>
 </body>
 </html>

@@ -3,28 +3,25 @@
 /*Template Name: Contact Layout*/
 get_header();  
 ?>
-<div class="banner-g banner-contactn d-flex align-items-center">
-  <div class="container py-3 z-index-10 text-center">
-    <?php echo the_title( '<h2 class="text-uppercase title-page mb-3">', '</h2>' ); ?>
-    <div class="wrap-crumbs w-100"><?php if(function_exists('breadcrumb')){breadcrumb();} ?></div>
-  </div>  
-  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_contact.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
-</div>
 
-<div class="contact-form py-4 py-md-5">
+<div class="contact-form pt-4 pt-md-5">
   <div class="container">
+    <h1 class="text-uppercase title-item mb-5 pb-4 text-center"><?php echo the_title(); ?></h1>
+    <div class="row justify-content-center mb-4 mb-md-5">
+      <div class="col-lg-10"><p class="text-center"><strong>Quý khách vui lòng điền thông tin vào mẫu bên dưới và gửi những góp ý, thắc mắc cho <?php echo get_bloginfo( 'name' ); ?>, chúng tôi sẽ phản hồi email của Quý Khách trong thời gian sớm nhất.</strong></p></div>
+    </div>    
     <div class="row">
       <div class="col-md-6 order-sm-1 mb-5">
-        <h3 class="text-uppercase mb-3 mb-md-5 position-relative">Nhập nội dung</h3>
         <div class="wrap-form-contact bg-even px-4 py-3">
           <?php echo contactForm(); ?>                  
         </div>
       </div>
       <div class="col-md-6 mb-5">
-        <div class="pr-md-5">
-          <div class="pr-lg-5">
-            <h3 class="text-uppercase mb-3 mb-md-5 position-relative">Thông tin</h3>
-            <h2 class="mb-4 text-uppercase"><?php echo get_bloginfo( 'name' ); ?></h2>
+        <div class="pr-md-5 h-100">
+          <div class="py-3 px-3 px-lg-5 h-100 border rounded">
+            <!-- <h3 class="text-uppercase mb-3 mb-md-5 position-relative">Thông tin</h3> -->
+            <a href="<?php bloginfo('url'); ?>" title="<?php echo get_bloginfo( 'name' ); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4 mx-auto" alt="<?php bloginfo('description'); ?>"></a>
+            <strong class="mb-4 text-uppercase d-block"><?php echo get_bloginfo( 'name' ); ?></strong>
             <ul class="address list-unstyled mb-4">
               <?php if(get_option('address_company') !='') {echo'<li class="address-icon">'.get_option('address_company').'</li>';}?>
               <?php if(get_option('phone_company') !='') {echo'<li class="hotline-icon">'.get_option('phone_company').'</li>';}?>
@@ -43,9 +40,13 @@ get_header();
         </div>              
       </div>      
     </div>
-    <?php if(get_option('google_map') !='') { echo'<div class="map">'.get_option('google_map').'</div>';}?>
+    
   </div>
+  <?php if(get_option('google_map') !='') { echo'<div class="map">'.get_option('google_map').'</div>';}?>
   
 </div>
-<?php get_footer(); ?>
+<?php 
+  get_footer();
+  echo "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
+?>
 

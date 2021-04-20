@@ -40,7 +40,7 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
 		$('[data-partner]').slick({
 			dots: false,
 		 	arrows: true,
-		 	slidesToShow: 6,
+		 	slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: true,
 			infinite: true,
@@ -55,7 +55,7 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
 		        {
 		          breakpoint: 568,
 		          settings: {
-		            slidesToShow: 3
+		            slidesToShow: 2
 		          }
 		        }
 		    ]

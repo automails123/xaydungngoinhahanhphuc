@@ -10,17 +10,17 @@
  * @version 1.0
  */
 get_header(); ?>
-	<div class="banner-g bn-duan d-flex align-items-center">
-	  <div class="container py-3 z-index-10 text-center"><h2 class="text-uppercase title-page mb-2 mb-lg-3">Dự án</h2>
+	<div class="banner-g bn-congtrinh d-flex align-items-center">
+	  <div class="container py-3 z-index-10 text-center"><h2 class="text-uppercase title-page mb-2 mb-lg-3">Dự án đã thi công</h2>
 	    <div class="wrap-crumbs w-100"><div id="crumbs" class="list-crumb"><i class="fa fa-home mr-1" aria-hidden="true"></i><a title="Trang chủ" class="home" href="<?php bloginfo('url'); ?>">Trang chủ</a>
-	    	<i class="fa fa-angle-double-right mx-1"></i><a href="<?php bloginfo('url'); ?>/du-an" title="Dự án">Dự án</a><i class="fa fa-angle-double-right mx-1"></i>
+	    	<i class="fa fa-angle-double-right mx-1"></i><a href="<?php bloginfo('url'); ?>/du-an" title="Dự án đã thi công">Dự án đã thi công</a><i class="fa fa-angle-double-right mx-1"></i>
 	    	<span class="current"><?php echo get_the_title();	?></span>
 	    </div></div>
 	  </div>  
-	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_duan.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
+	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_congtrinh.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
 	</div>
 
-	<div class="container content-tax area-post py-4 py-md-5">
+	<div class="container content-tax area-post py-5">
 		<div class="row">
 			<div class="col-12 col-lg-9">
 				<?php 
@@ -32,7 +32,7 @@ get_header(); ?>
 							comments_template();
 						endif;
 					endwhile; // End of the loop.			
-				?>	
+				?>
 			</div>
 			<div class="col-lg-3 d-none d-lg-block">
 				<?php get_sidebar(); ?>
@@ -49,7 +49,7 @@ get_header(); ?>
 					$related_items = new WP_Query($args );
 					// loop over query
 					if ($related_items->have_posts()) :
-						echo '<div class="related-product"><h2 class="text-capitalize title-item item-line mb-2">Dự Án Thi công liên quan</h2><div class="row">';
+						echo '<div class="related-product"><h2 class="text-capitalize title-item item-line mb-2">Công trình liên quan</h2><div class="row">';
 						while ($related_items->have_posts() ) : $related_items->the_post();
 				        	echo '<div class="col-6 col-md-3 my-3">';
 				                echo '<a class="d-block item-prod w-100 p-0 rounded overflow-hidden mb-3" href="' . get_the_permalink() . '" title="' . get_the_title() .'">

@@ -14,18 +14,18 @@
 				        foreach ($slider as $image) { ?>
 				        	<div class="d-table">
 		                      <div class="d-table-cell p-1 p-md-2">
-		                        <img src="<?php echo wp_get_attachment_url($image, 'large'); ?>" alt="<?php echo get_the_title(); ?>" class="h-100 w-100 obj-cover img-fluid mx-auto d-block">
+		                        <img src="<?php echo wp_get_attachment_url($image, 'large'); ?>" alt="<?php echo get_the_title(); ?>" class="img-fluid mx-auto d-block">
 		                      </div>
 		                    </div>
 				    	<?php } ?>	                    
 	                  </div>
 	                </div>
-	                <div class="slider-nav">
+	                <div class="slider-nav ">
 	                	<?php 
 				        	foreach ($slider as $image) { ?>
 				        		<div class="item px-1 px-lg-2">
 				                    <div class="border-1 p-1 fix-h-thumb d-flex align-items-center">
-				                      <img src="<?php echo wp_get_attachment_url($image, 'large'); ?>" class="img-fluid d-block mx-auto h-100 obj-cover" alt="">
+				                      <img src="<?php echo wp_get_attachment_url($image, 'large'); ?>" class="img-fluid d-block mx-auto" alt="">
 				                    </div>
 				                </div>				        		
 				    	<?php }	?>
