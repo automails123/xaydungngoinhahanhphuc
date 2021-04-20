@@ -11,6 +11,7 @@
 
 	<div class="py-4 tax-partners">
 	  	<div class="container">
+	  		<div class="d-flex justify-content-center align-items-center"><h3 class="title-item mb-4 pb-4 text-capitalize">Đối tác chúng tôi</h3></div>
 	  		<div class="row grid-item">
 		  		<?php 
 					$post_partners = new WP_Query(array(

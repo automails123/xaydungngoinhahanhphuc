@@ -100,7 +100,7 @@ get_header();?>
    	<div class="project-home py-5">
    		<div class="container-fluid pt-lg-3 px-1">
 			  <h2 class="text-uppercase title-home text-center mb-2 text-white">Dự án thi công</h2>
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto">
+        <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto mb-4">
         <?php
           $post_duan = new WP_Query(array(
             'post_type' => 'duan',
@@ -121,13 +121,15 @@ get_header();?>
         ?>   
  			</div>
  		</div>      
-      <!-- <div class="news-home pt-5 pb-4 pb-md-5 bg-even">
+      <div class="news-home pt-5 pb-4 pb-md-5">
         <div class="container pt-lg-3">
-         <h2 class="text-uppercase title-home title-home-2 mb-1 mb-md-4 mb-lg-5 pb-3"><span>Tin tức & sự kiện <small class="d-block">HOANG TRIEU GROUP</small></span></h2>
-          <?php if(function_exists('news_home')){ echo news_home('tin-tuc-su-kien'); } ?>
+          <h2 class="text-uppercase title-home text-center mb-2">Tin tức & sự kiện</h2>
+          <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto">
+          <?php if(function_exists('news_home')){ echo news_home('tin-tuc'); } ?>
+          
         </div>
-      </div> -->
-   		<div class="partner pt-5 pb-4 pb-md-5">
+      </div>
+   		<div class="partner pt-5 pb-4 pb-md-5 bg-even">
    			<div class="container pt-lg-3">
           <h2 class="text-uppercase title-home text-center mb-2">Đối tác</h2>
           <img src="<?php echo get_template_directory_uri();?>/assets/images/titlebg.png" alt="" class="img-fluid d-block mx-auto mb-5">

@@ -2,15 +2,17 @@
 <footer class="footer pt-5">
   <div class="inner-footer">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 text-center">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-7 text-left">
           <div class="logo-footer">
-            <a href="<?php bloginfo('url'); ?>" title="<?php echo get_bloginfo( 'name' ); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4 mx-auto" alt="<?php bloginfo('description'); ?>"></a>
+            <a href="<?php bloginfo('url'); ?>" title="<?php echo get_bloginfo( 'name' ); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4" alt="<?php bloginfo('description'); ?>"></a>
           </div>
-          <h2 class="mb-3 text-uppercase"><?php echo get_bloginfo( 'name' ); ?></h2>
-          <div class="text-center slogan"><i><?php bloginfo('description'); ?></i></div>
-        </div>        
+          <h2 class="mb-3 text-uppercase"><?php echo get_bloginfo( 'name' ); ?></h2>          
+        </div> 
+        <div class="col-12 col-md-5"><div class="wrap-fb text-md-right"><iframe src="https://www.facebook.com/plugins/page.php?href=<?php echo get_option('facebook');?>&tabs=timeline&width=340&height=130&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId=215651349123280" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></div>
+      </div>       
       </div>
+      <div class="slogan"><i><?php bloginfo('description'); ?></i></div>
       <div class="line my-4 my-md-5"></div>
       <div class="row mb-2">
         <div class="col-12 col-md-4">
@@ -28,7 +30,7 @@
             <li class="pr-3 text-center"><a href="<?php echo get_option('facebook');?>" class="d-block" target="_blank" title="Facebook Martoyo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
             <li class="pr-3 text-center"><a href="<?php echo get_option('twitter');?>" class="d-block" target="_blank" title="Twitter Martoyo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
             <li class="text-center"><a href="<?php echo get_option('youtube');?>" class="d-block" target="_blank" title="Youtube Martoyo"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-          </ul>  -->   
+          </ul>  -->
         </div>
         <div class="col-12 col-md-4">
           <h3 class="text-uppercase"><span class="pb-2">Site map</span></h3>
@@ -45,7 +47,7 @@
                <ul class="list-unstyled list-i">
                  <li class="mb-3"><a href="<?php bloginfo('url'); ?>/linh-vuc-hoat-dong" title="Lĩnh vực hoạt động">Lĩnh vực hoạt động</a></li>
                  <li class="mb-3"><a href="https://batdongsanland.com.vn/" title="Mua bán BĐS">Mua bán BĐS</a></li>
-                 <li class="mb-3"><a href="<?php bloginfo('url'); ?>/thong-tin-co-dong" title="Thông tin cổ đông">Thông tin cổ đông</a></li>
+                 <li class="mb-3"><a href="<?php bloginfo('url'); ?>/du-an" title="Dự án đã thi công">Dự án đã thi công</a></li>
                  <li><a href="<?php bloginfo('url'); ?>/doi-tac" title="Đối tác">Đối tác</a></li>
                 </ul>
              </div>

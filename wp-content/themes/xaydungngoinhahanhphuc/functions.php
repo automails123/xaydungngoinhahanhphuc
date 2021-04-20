@@ -1716,6 +1716,8 @@ add_filter( 'big_image_size_threshold', '__return_false' );
 
 
 function news_home($name_category = '') {
+	$term_id = get_term_by('slug', $name_category, 'category');
+	$term_id = $term_id->term_id;
 	$the_query = new WP_Query( array( 'category_name' => $name_category,'posts_per_page' => 5) );
 	if ( $the_query->have_posts() ) {	
 		$string .='<div class="row my-3 my-lg-4">';
@@ -1757,7 +1759,14 @@ function news_home($name_category = '') {
 
 			$stt++;
 		}
-	$string .= '</div></div></div>';
+	$string .= '</div></div></div>
+		<div class="row">
+            <div class="col-12 text-center mb-3">
+              <a href="'.get_category_link($term_id).'" class="btn btn-read-more text-capitalize px-3 py-2 rounded">
+               Xem nhiều Tin Tin tức & Sự Kiện <span class="ml-2 d-inline-block align-middle">+</span>
+             </a>             
+            </div>            
+        </div>';
 	}else{/*no posts found*/}
 	return $string;
 	/* Restore original Post Data */
@@ -1893,7 +1902,7 @@ function related_taxomy_posts($post_page='4') {
 	$related_items = new WP_Query($args );
 	// loop over query
 	if ($related_items->have_posts()) :
-		echo '<div class="related-product"><h2 class="text-capitalize title-item item-line mb-2">'.$get_temr[0]->name.' liên quan</h2><div class="row">';
+		echo '<div class="related-product"><hr><h2 class="text-capitalize title-item item-line mb-2">'.$get_temr[0]->name.' liên quan</h2><div class="row">';
 		while ($related_items->have_posts() ) : $related_items->the_post();
         	echo '<div class="col-6 col-md-3 my-3">';
                 echo '<a class="d-block item-prod w-100 p-0 rounded overflow-hidden mb-3" href="' . get_the_permalink() . '" title="' . get_the_title() .'">

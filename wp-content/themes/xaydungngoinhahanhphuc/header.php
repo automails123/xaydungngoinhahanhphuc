@@ -29,6 +29,12 @@
           </div>
           <div class="col-3 col-md-9">
             <h2 class="slogan text-uppercase mt-0 mb-4 text-center d-none d-md-block"><?php echo get_bloginfo( 'name' ); ?></h2>
+            <div class="search-area  p-lg-0 mb-0 ml-md-auto d-none d-md-block">
+              <form class="inner-search position-relative" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">  
+                <input id="<?php echo $unique_id; ?>" type="search"  class="search-field input-searchbox rounded pl-2 " placeholder="<?php echo esc_attr_x( 'Tìm kiếm …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s">
+                <button class="btn btn-searchbox py-0" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </form>                    
+            </div> 
             <div class="d-none d-md-flex justify-content-between">
               <?php if(get_option('phone_company') !='') {
                 echo '<div class="media contact-head align-items-center">  
@@ -67,12 +73,7 @@
                   'menu_class' => 'navbar-nav justify-content-center',
                 ) ); ?>          
               <?php endif; ?> 
-              <div class="search-area  p-lg-0 mb-0 ml-md-auto d-none d-md-block">
-                <form class="inner-search position-relative" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">  
-                  <input id="<?php echo $unique_id; ?>" type="search"  class="search-field input-searchbox rounded pl-2 " placeholder="<?php echo esc_attr_x( 'Tìm kiếm …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s">
-                  <button class="btn btn-searchbox py-0" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>                    
-              </div> 
+              
             </div>
           </div>
       </div>

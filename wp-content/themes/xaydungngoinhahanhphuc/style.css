@@ -881,7 +881,7 @@ img.aligncenter {
 .slider-bar h3 {
     font-family: 'Roboto-Bold';
     font-size: 18px;
-    background: #59261d;
+    background: #000;
     color: #fff;
     line-height: 1
 }
@@ -1179,7 +1179,7 @@ img.aligncenter {
 	color: #ed2025;
 }
 .footer .slogan {
-	font-size: 18px;
+	font-size: 15px;
 	color: #9ca5a9
 }
 .footer .address li  {
@@ -1342,12 +1342,12 @@ img.aligncenter {
 
 }
 .logo-footer img{
-	border-radius: 10px;
+	height: 120px
 }
 .footer h2 {
     color: #fff;
     font-family: 'Roboto-Bold';
-    font-size: 25px;
+    font-size: 18px;
     line-height: 1.4;
 }
 .line {
@@ -1623,7 +1623,7 @@ img.aligncenter {
 	.news-home .first-news .vertical-img {
 	    height: 350px;
 	}
-	.footer h2 {font-size: 22px}
+	.footer h2 {font-size: 16px}
 	.footer h3 span {font-size: 15px;}
 	.footer .address li {
 	    font-size: 13px;
@@ -1695,7 +1695,7 @@ img.aligncenter {
 	    height: 280px;
 	}
 	.footer h2 {
-	    font-size: 20px;
+	    font-size: 15px;
 	}
 	.title-page {
 	    font-size: 32px;
@@ -1732,9 +1732,7 @@ img.aligncenter {
 	    height: 250px;
 	}
 	.text-item {font-size: 16px}
-	.footer h2 {
-	    font-size: 18px;
-	}
+	
 	.banner-g {
 	    height: 300px;
 	}
