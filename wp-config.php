@@ -24,7 +24,7 @@ define( 'WP_CACHE', true ) ;
 /** The name of the database for WordPress */
 define('DB_NAME', 'vodanhc2_xaydungngoinhahanhphuc'); // vodanhc2_xaydungngoinhahanhphuc
 define('DB_USER', 'root');//root vodanhc2_xaydungngoinhahanhphuc
-//user_admin:xaydungngoinhahanhphuc pass:Xaydungngoinhahanhphuc@2020++
+//user_admin:xaydungngoinhahanhphuc pass:Xaydungngoinhahanhphuc@2020++ git : Nguyenvanhoach pas Khongthequen535089
 /** MySQL database password */
 define('DB_PASSWORD', '');// user:admin pass: Xaydungngoinhahanhphuc@2021++
 
