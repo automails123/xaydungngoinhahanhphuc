@@ -1233,7 +1233,7 @@ function newsLetter() {
 	?>
 	<div class="new-letter">
 	    <form method="post" accept-charset="utf-8" enctype="multipart/form-data" id="subscribe-form"> 
-	       <p>Đăng kí tin tức mới, những công trình mới, dự án thi công mới và các sự kiện mới nhất,... từ Bất Động Sản Hoàng Triều</p>
+	       <p>Đăng kí tin tức mới, những công trình mới, dự án thi công mới và các sự kiện mới nhất,... từ chúng tôi</p>
 	       <div class="input-group">
 	         <input type="email" required="" name="mail_subscribe" class="form-control mail_subscribe px-3 px-md-2" placeholder="Nhập Email của bạn">
 	         <span class="input-group-btn">

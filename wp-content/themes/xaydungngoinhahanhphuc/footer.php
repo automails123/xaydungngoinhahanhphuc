@@ -62,7 +62,7 @@
         <div class="row align-items-center">
           <div class="col-12 col-md-6 order-md-1 mb-3 mb-md-0 text-center text-md-right"><a href="https://batdongsanland.com.vn/" title="batdongsanland"><img src="<?php echo get_template_directory_uri();?>/assets/images/logo_batdongsanland.png" alt="" class="img-fluid"></a></div>         
           <div class="col-12 col-md-6">
-            Copyright © 2020 XAYDUNGNGOINHAHANHPHUC. All rights reserved.
+            Copyright © 2021 XAYDUNGNGOINHAHANHPHUC. All rights reserved.
           </div> 
         </div>  
       </div>
