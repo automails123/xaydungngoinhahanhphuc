@@ -9,7 +9,7 @@
 	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_partners.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
 	</div>
 
-	<div class="py-4 tax-partners">
+	<div class="py-5 tax-partners">
 	  	<div class="container">
 	  		<div class="d-flex justify-content-center align-items-center"><h3 class="title-item mb-4 pb-4 text-capitalize">Đối tác chúng tôi</h3></div>
 	  		<div class="row grid-item">
@@ -22,10 +22,10 @@
 				    if($post_partners->have_posts()) {
 				      	while ($post_partners->have_posts()) {
 					        $post_partners->the_post(); 
-					        echo '<div class="col-6 col-sm-3 col-md-4 my-3">
-					          	<a class="post-media p-2 mb-3 d-block" href="'.get_bloginfo('url').'/doi-tac" title="' . get_the_title() .'" ><div class="vertical-img">' .get_the_post_thumbnail( get_the_id(), 'full', array( 'class' =>'img-fluid mx-auto d-block','alt' => get_the_title(), 'loading'=> 'lazy') ).'</div></a>
+					        echo '<div class="col-6 col-sm-4 col-md-3 my-3">
+					          	<a class="post-media p-2 mb-3 d-block" href="'.get_bloginfo('url').'/doi-tac" title="' . get_the_title() .'" >' .get_the_post_thumbnail( get_the_id(), 'full', array( 'class' =>'img-fluid mx-auto d-block','alt' => get_the_title(), 'loading'=> 'lazy') ).'</a>
 						        <div class="post-content">
-						          <h3 class="text-capitalize title-item-post mb-0 text-center"><a href="'.get_bloginfo('url').'/doi-tac" title="' . get_the_title() .'" >' .get_the_title() .'</a></h3>						          
+						          <h3 class="text-capitalize title-item-post mb-0 text-center"><a class="text-black" href="'.get_bloginfo('url').'/doi-tac" title="' . get_the_title() .'" >' .get_the_title() .'</a></h3>						          
 						        </div></div>';				        	
 				      	} 
 				    }  

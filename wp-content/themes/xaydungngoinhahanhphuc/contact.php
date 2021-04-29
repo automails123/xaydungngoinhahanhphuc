@@ -21,7 +21,7 @@ get_header();
           <div class="py-3 px-3 px-lg-5 h-100 border rounded">
             <!-- <h3 class="text-uppercase mb-3 mb-md-5 position-relative">Thông tin</h3> -->
             <a href="<?php bloginfo('url'); ?>" title="<?php echo get_bloginfo( 'name' ); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/logo.png" class="img-fluid d-block mb-4 mx-auto" alt="<?php bloginfo('description'); ?>"></a>
-            <strong class="mb-4 text-uppercase d-block"><?php echo get_bloginfo( 'name' ); ?></strong>
+            <strong class="mb-4 text-uppercase d-block name-contact"><?php echo get_bloginfo( 'name' ); ?></strong>
             <ul class="address list-unstyled mb-4">
               <?php if(get_option('address_company') !='') {echo'<li class="address-icon">'.get_option('address_company').'</li>';}?>
               <?php if(get_option('phone_company') !='') {echo'<li class="hotline-icon">'.get_option('phone_company').'</li>';}?>

@@ -565,8 +565,6 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
-
-
 function remove_head_scripts() { 
 	if(!is_admin()) {
 		remove_action('wp_head', 'wp_print_scripts'); 
@@ -624,43 +622,24 @@ function sdt_remove_ver_css_js( $src ) {
  return $src;
 }
 
-
-function show_proj_meta_box() {
-	add_meta_box( 'show-proj', 'Lựa chọn hiện thị dự án ra trang chủ', 'show_proj_output', 'post' );
+function isMobileDevice(){
+    $aMobileUA = array(
+        '/iphone/i' => 'iPhone',
+        '/ipod/i' => 'iPod',
+        '/ipad/i' => 'iPad',
+        '/android/i' => 'Android',
+        '/blackberry/i' => 'BlackBerry',
+        '/webos/i' => 'Mobile'
+    );
+    //Return true if Mobile User Agent is detected
+    foreach($aMobileUA as $sMobileKey => $sMobileOS){
+        if(preg_match($sMobileKey, $_SERVER['HTTP_USER_AGENT'])){
+            return true;
+        }
+    }
+    //Otherwise return false..
+    return false;
 }
-add_action( 'add_meta_boxes', 'show_proj_meta_box' );
-
-function show_proj_output($post) {
-	$sort_proj = get_post_meta($post->ID,'sort_proj',true);
-	$custom = get_post_custom($post->ID);
-  	// $check_special = $custom["url"][0];
-	$check_proj = isset( $custom['check_proj'] ) ? esc_attr( $custom['check_proj'][0] ) : '';
-
-	wp_nonce_field( 'save_show_proj', 'show_proj_nonce' );?>
-	<p>
-		<label for="sort_proj" style="color: red">Hiện thị dự án ưu tiên ngoài trang chủ: </label><br>		
-		<input type="text" style="height:38px;width: 100%" id="sort_proj" name="sort_proj" placeholder="Nhập số cần sắp xếp ngoài trang chủ" value="<?php echo esc_attr($sort_proj); ?>"/>
- 	</p>
- 	<p>
-		<label for="check_proj" style="color: red">Hiện thị Dự án nội bật ở trang chủ</label>
-		<input type="checkbox" name="check_proj"<?php if($check_proj == "on"): echo " checked"; endif ?>>
- 	</p>
-<?php }
-function show_proj_save($post_id) {
-	$show_proj_nonce = $_POST['show_proj_nonce'];
-	if( !isset($show_proj_nonce ) ) { return; }
-	// Kiểm tra nếu giá trị nonce không trùng khớp
-	if( !wp_verify_nonce($show_proj_nonce, 'save_show_proj' ) ) { return; }
-	$sort_proj = sanitize_text_field($_POST['sort_proj'] );	
-	update_post_meta($post_id, 'sort_proj', $sort_proj);
-	if($_POST["check_proj"] == "on") {
-	    $check_proj_checked = "on";
-	  } else {
-	    $check_proj_checked = "off";
-	  }
-	update_post_meta($post_id, "check_proj", $check_proj_checked);
-}
-add_action( 'save_post', 'show_proj_save' );
 
 add_action('admin_head', 'my_custom_fonts');
 function my_custom_fonts() {
@@ -1079,7 +1058,7 @@ function ungtuyen() {
 						<tr>
 							<td width='360' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif;padding:10px 0 10px 10px'>
 								<a href='".get_bloginfo( 'url' )."' style='text-decoration:none;font-family:Arial,Helvetica,sans-serif' target='_blank'>
-									<img src='".get_bloginfo( 'url' )."/wp-content/themes/xaydungngoinhahanhphuc/assets/images/logo.png' style='border:0;max-width: 100%;height: auto' alt='".get_bloginfo( 'name' )."'></a>
+									<img src='".get_template_directory_uri()."/assets/images/logo.png' style='border:0;max-width: 100%;height: auto' alt='".get_bloginfo( 'name' )."'></a>
 							</td>
 							<td width='30' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif'></td>
 							<td width='90' align='left' style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif'><a href='".get_bloginfo( 'url' )."/gioi-thieu' style='text-decoration:none;font-family:Arial,Helvetica,sans-serif;color:#333333;font-size:12px;line-height:20px;display:inline-block' target='_blank'>Về Chúng Tôi</a></td>
@@ -1094,9 +1073,6 @@ function ungtuyen() {
 				<td style='padding:0;margin:0;font-family:Arial,Helvetica,sans-serif;padding-bottom: 30px'>
 				<table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse' bgcolor='#ffffff'>
 					<tbody>
-						<tr>
-						<td bgcolor='#105aa6' width='100%' height='15px' valign='top'></td>
-						</tr>
 						<tr>
 							<td>
 								<table border='0' cellpadding='0' cellspacing='0' width='100%' bgcolor='#ffffff'>
@@ -1672,11 +1648,11 @@ function share_social() { ?>
         <div class="item-g print mr-1 mr-md-3 mb-3"><a title="In bài này" onclick="javascript:window.print();" rel="nofollow" href="javascript:void(0)"><i class="fa fa-print mr-1" aria-hidden="true"></i>In bài này</a></div>
         <div class="item-g mr-1 mr-md-3 mb-3">Chia sẻ trên:</div>
         <div class="share-social d-flex flex-wrap align-items-center justify-content-center">
-            <a class="mr-2 fb mb-3" title="Chia sẻ trên Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a class="mr-3 mr-sm-2 gg mb-3 rounded" title="Chia sẻ trên Google plus +" href="https://plus.google.com/share?url=<?php echo urlencode(get_permalink()); ?>" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
-            <a class="mr-3 mr-sm-2 twinter mb-3 rounded" title="Chia sẻ trên Twinter" href="https://twitter.com/intent/tweet?text=<?php echo urlencode(get_the_title()); ?>+<?php echo get_permalink(); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a class="mr-3 mr-sm-2 pinterest mb-3 rounded" title="Chia sẻ trên Pinterest" href="https://www.pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink()); ?>&media=<?php echo the_post_thumbnail_url('large'); ?>&description=<?php echo get_the_title(get_the_ID()); ?>" target="_blank"><i class="fa fa-pinterest"></i></a>
-            <a class="linkedin mb-3 rounded" title="Chia sẻ trên Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo get_the_title(get_the_ID()); ?>&source=<?php echo site_url();?>" target="_blank"><i class="fa fa-linkedin"></i></a>			    
+            <a class="mr-2 fb mb-3" title="Chia sẻ trên Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a class="mr-3 mr-sm-2 instagram mb-3 rounded" title="Chia sẻ trên Instagram" href="https://www.instagram.com/?url=<?php echo urlencode(get_permalink()); ?>" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a class="mr-3 mr-sm-2 twinter mb-3 rounded" title="Chia sẻ trên Twinter" href="https://twitter.com/intent/tweet?text=<?php echo urlencode(get_the_title()); ?>+<?php echo get_permalink(); ?>" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="mr-3 mr-sm-2 pinterest mb-3 rounded" title="Chia sẻ trên Pinterest" href="https://www.pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink()); ?>&media=<?php echo the_post_thumbnail_url('large'); ?>&description=<?php echo get_the_title(get_the_ID()); ?>" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+            <a class="linkedin mb-3 rounded" title="Chia sẻ trên Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo get_the_title(get_the_ID()); ?>&source=<?php echo site_url();?>" target="_blank"><i class="fab fa-linkedin-in"></i></a>			    
         </div>
     </div>
 <?php }
@@ -1724,19 +1700,17 @@ function news_home($name_category = '') {
 		$stt = 1;
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();		
-			if($stt == 1) {
-				if ( has_post_thumbnail() ) {
+			if ( has_post_thumbnail() ) {
+				if($stt == 1) {				
 					$string .= '<div class="col-12 col-lg-7 my-3 my-lg-2 first-news"><div class="news-home-inner position-relative">
 			          	<a class="post-media d-block h-100" href="' . get_the_permalink() .'" title="' . get_the_title() .'" ><div class="vertical-img">' .get_the_post_thumbnail( get_the_id(), 'full', array( 'class' =>'img-fluid mx-auto d-block','alt' => get_the_title(), 'loading'=> 'lazy') ).'</div></a>
 				        <div class="post-content px-lg-2 pt-3 pb-lg-3">
 				          <h3 class="text-capitalize title-item-post pb-lg-2"><a href="' . get_the_permalink() .'" title="' . get_the_title() .'" >' .get_the_title() .'</a></h3>
 				          <div>'. trim_text_to_words(get_the_content(), 120) . '</div>
 				        </div></div>
-				    </div><div class="col-12 col-lg-5"><div class="row">';
-				} 
-			} else {
-
-				if ( has_post_thumbnail() ) {
+				    </div><div class="col-12 col-lg-5"><div class="row">';				
+				} else {
+					if(isMobileDevice()) {$content_des= trim_text_to_words(get_the_content(), 80);} else { $content_des = trim_text_to_words(get_the_content(), 120); } 
 					$string .= '<div class="col-12 my-2 my-lg-2">
 						<div class="row align-items-center">
 							<div class="col-4">
@@ -1748,22 +1722,21 @@ function news_home($name_category = '') {
 						    	<div class="news-home-inner h-100">
 							        <div class="post-content px-2 pb-2">
 							          <h3 class="text-capitalize title-item-post"><a href="' . get_the_permalink() .'" title="' . get_the_title() .'" >' .get_the_title() .'</a></h3>
-							          <div class="d-none d-sm-block">'. trim_text_to_words(get_the_content(), 120) . '</div>
+							          <div class="d-block">'.$content_des.'</div>
 							        </div>
 							    </div>
 							</div>
 					    </div>
 				    </div>';
-				} 				
+				}
+				$stt++;
 			}
-
-			$stt++;
 		}
 	$string .= '</div></div></div>
 		<div class="row">
             <div class="col-12 text-center mb-3">
               <a href="'.get_category_link($term_id).'" class="btn btn-read-more text-capitalize px-3 py-2 rounded">
-               Xem nhiều Tin Tin tức & Sự Kiện <span class="ml-2 d-inline-block align-middle">+</span>
+               Xem nhiều hơn <span class="ml-2 d-inline-block align-middle">+</span>
              </a>             
             </div>            
         </div>';

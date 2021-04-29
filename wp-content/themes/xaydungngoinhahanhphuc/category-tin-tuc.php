@@ -9,7 +9,7 @@
 	    <div class="wrap-crumbs w-100"><?php if(function_exists('breadcrumb')){breadcrumb();} ?></div>
 	  </div>
 	  
-	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_contact.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
+	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_news.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">
 	</div>
   	<div class="container py-5"> 
   		<div class="d-flex justify-content-center align-items-center"><h3 class="title-item mb-4 pb-4 text-capitalize">Tin tức và sự kiện</h3></div>

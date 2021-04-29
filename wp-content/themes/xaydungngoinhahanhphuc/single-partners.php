@@ -13,8 +13,8 @@ get_header(); ?>
 	<div class="banner-g bn-partners d-flex align-items-center">
 	  <div class="container py-3 z-index-10 text-center"><h2 class="text-uppercase title-page mb-2 mb-lg-3">Đối tác</h2>
 	    <div class="wrap-crumbs w-100"><div id="crumbs" class="list-crumb"><i class="fa fa-home mr-1" aria-hidden="true"></i><a title="Trang chủ" class="home" href="<?php bloginfo('url'); ?>">Trang chủ</a>
-	    	<i class="fa fa-angle-double-right mx-1"></i><a href="<?php bloginfo('url'); ?>/cong-trinh" title="Đối tác">Đối tác</a><i class="fa fa-angle-double-right mx-1"></i>
-	    	<span class="current"><?php echo get_the_title();	?></span>
+	    	<i class="fa fa-angle-double-right mx-1"></i><a href="<?php bloginfo('url'); ?>/doi-tac/" title="Đối tác">Đối tác</a><i class="fa fa-angle-double-right mx-1"></i>
+	    	<span class="current"><?php echo get_the_title();?></span>
 	    </div></div>
 	  </div>  
 	  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/images/bg_partners.jpg" class="mx-auto d-block img-fluid" alt="<?php echo get_bloginfo( 'name' ); ?>">

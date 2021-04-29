@@ -11,7 +11,7 @@
 
 	<div class="py-5 tax-duan">
 	  	<div class="container">
-	  		<div class="d-flex justify-content-center align-items-center"><h3 class="title-item mb-4 pb-4">Dự Án Thi Công Xây Dựng Ngôi Nhà Hạnh Phúc</h3></div>
+	  		<div class="d-flex justify-content-center align-items-center"><h3 class="title-item mb-4 pb-4">LĨNH VỰC HOẠT ĐỘNG CHÍNH CỦA CHÚNG TÔI</h3></div>
 	  		<div class="row grid-item">
 		  		<?php 
 					$post_linhvuchoatdong = new WP_Query(array(

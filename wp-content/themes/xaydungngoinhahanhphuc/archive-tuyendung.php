@@ -33,7 +33,9 @@
 							$diachi_lamviec = get_post_meta($postid, 'diachi_lamviec', true); 
 							
 							if($diachi_lamviec == '') {
-								$diachi_lamviec = 'LM81-45.OT01 Tòa Landmark 81 Vinhomes Central Park, 720A Điện Biên Phủ, Phường 22, Quận Bình Thạnh, Hồ Chí Minh, Việt Nam';
+								if(get_option('address_company') !='') {
+									$diachi_lamviec = get_option('address_company');
+								}
 							}
 					        echo '<tr>
 	  						<td class="w-25 align-middle"><a class="d-block" href="' . get_the_permalink() . '" title="' . get_the_title() .'" ><strong class="pr-2 text-uppercase">' .get_the_title() .'</strong><span class="detail-view text-nowrap">Xem chi tiết<i class="ml-1 fa fa-angle-double-right" aria-hidden="true"></i></span></a></td>
