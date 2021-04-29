@@ -87,4 +87,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-$memcached_servers = array( 'default' => array('/home/vodanhc2/.applicationmanager/memcached.sock:0'));
+// $memcached_servers = array( 'default' => array('/home/vodanhc2/.applicationmanager/memcached.sock:0'));
